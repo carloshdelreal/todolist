@@ -1,0 +1,31 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "Todo List project in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "lint": "eslint src/index.js --fix",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carloshdelreal/todolist.git"
+  },
+  "keywords": [
+    "todo"
+  ],
+  "author": "Carlos Del Real",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carloshdelreal/todolist/issues"
+  },
+  "homepage": "https://github.com/carloshdelreal/todolist#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "prettier": "^1.18.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
