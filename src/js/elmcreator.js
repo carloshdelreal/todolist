@@ -11,7 +11,9 @@ function createElem(element, id, classes) {
   classes.forEach((cls) => {
     elem.classList.add(cls);
   });
-  elem.id = id;
+  if (id.length > 2) {
+    elem.id = id;
+  }
 
   return elem;
 }
