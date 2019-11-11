@@ -21,10 +21,20 @@
     "url": "https://github.com/carloshdelreal/todolist/issues"
   },
   "homepage": "https://github.com/carloshdelreal/todolist#readme",
-  "dependencies": {},
+  "dependencies": {
+    "css-loader": "^3.2.0",
+    "fibers": "^4.0.2",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.13.0",
+    "popper": "^1.0.1",
+    "sass": "^1.23.3",
+    "style-loader": "^1.0.0"
+  },
   "devDependencies": {
+    "bootstrap": "^4.3.1",
     "eslint": "^6.6.0",
     "prettier": "^1.18.2",
+    "sass-loader": "^8.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   }
