@@ -1,9 +1,4 @@
 import './style.scss';
+import load from './js/pageload';
 
-function addTask() {
-  let task = document.getElementById('item').value;
-  if (task) {
-    console.log(task);
-  }
-}
-document.getElementById('add').addEventListener('click', addTask);
+load();

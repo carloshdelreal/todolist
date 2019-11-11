@@ -95,7 +95,7 @@ header button {
   -moz-appearance: none;
 }
 
-header button svg {
+button svg {
   width: 16px;
   height: 16px;
 
@@ -106,14 +106,8 @@ header button svg {
   margin: -8px 0 0 -8px;
 }
 
-header button svg .fill {
+button svg .fill {
   fill: #25b99a;
-}
-
-.container {
-  width: 100%;
-  float: left;
-  padding: 15px;
 }
 
 ul.todo {
