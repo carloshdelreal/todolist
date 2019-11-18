@@ -12,4 +12,16 @@ function createList(todo){
   return list
 }
 
-export {createList};
+function showTodo(todo){
+  const list=createElem('ul','',['todos']);
+  console.log(todo);
+  todo.todos.forEach((elem)=> {
+    const item = createElem('li','',['todoItem']);
+    item.innerText = elem.title;
+    console.log(elem)
+    list.appendChild(item);
+  });
+  return list
+
+}
+export {createList,showTodo};
