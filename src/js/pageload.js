@@ -1,5 +1,5 @@
 import { createDiv } from './elmcreator';
-import todoList from './todoList';
+import { createForm, formList } from './todoList';
 
 export default function load() {
   // Content
@@ -12,5 +12,6 @@ export default function load() {
 
   // console.log(todoList());
 
-  rightColumn.appendChild(todoList());
+  rightColumn.appendChild(createForm());
+  leftColumn.appendChild(formList());
 }

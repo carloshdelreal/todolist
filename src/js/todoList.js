@@ -1,9 +1,9 @@
 import { createDiv, createElem } from './elmcreator';
 import bulletField from './bulletField';
 
-export default function createForm() {
-  const todoContainer = createDiv(['todoContainer']);
-  const todoFields = createElem('form', '', ['form']);
+// Create Activity Form
+function createForm() {
+  const todoFields = createElem('div', '', ['form']);
 
   // Title
   const todoFieldTitle = createDiv(['form-group']);
@@ -13,10 +13,7 @@ export default function createForm() {
 
   // description
   const todoFieldDescription = createDiv(['form-group']);
-  const todoDescription = createElem('textarea', '', [
-    'description',
-    'form-control',
-  ]);
+  const todoDescription = createElem('textarea', '', ['description', 'form-control']);
   todoDescription.placeholder = 'Description';
   todoFieldDescription.appendChild(todoDescription);
 
@@ -53,7 +50,22 @@ export default function createForm() {
   todoFields.appendChild(todoFieldPriority);
   todoFields.appendChild(todoBtn);
 
-  todoContainer.appendChild(todoFields);
-
-  return todoContainer;
+  return todoFields;
 }
+
+// create todo classes form
+function formList() {
+  const todoFields = createElem('div', '', ['form']);
+
+  // Title
+  const todoFieldTitle = createDiv(['form-group']);
+  const todoTitle = createElem('input', 'todoTitle', ['title', 'form-control']);
+  todoTitle.placeholder = 'List Name';
+  todoFieldTitle.appendChild(todoTitle);
+
+  todoFields.appendChild(todoFieldTitle);
+
+  return todoFields;
+}
+
+export { createForm, formList };
