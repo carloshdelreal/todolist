@@ -1,6 +1,6 @@
 import { createDiv } from './elmcreator';
 import { createForm, formList } from './todoForms';
-import {Todo,List} from './todo';
+import {Todo,List,Container} from './todo';
 import {createList} from './updateList'
 
 export default function load() {
@@ -8,8 +8,13 @@ export default function load() {
   const content = document.querySelector('#content');
   const leftColumn = createDiv(['col-md-4']);
   const rightColumn = createDiv(['col-md-8']);
-  const todo = List('Test');
-  todo.todos.push(Todo('Name','description','Date',3));
+  const todoContainer = Container();
+  console.log(todoContainer);
+  const list = List('Test List');
+  list.todos.push(Todo('Name','description','Date',3));
+
+  todoContainer.lists.push(list);
+
   content.appendChild(leftColumn);
   content.appendChild(rightColumn);
 
@@ -17,5 +22,5 @@ export default function load() {
 
   rightColumn.appendChild(createForm());
   leftColumn.appendChild(formList());
-  rightColumn.appendChild(createList(todo));
+  leftColumn.appendChild(createList(todoContainer));
 }
