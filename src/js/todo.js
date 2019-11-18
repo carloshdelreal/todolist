@@ -13,3 +13,5 @@ const Todo = (todoTitle, todoDescription, todoDate, todoPriority) => {
 
   return { title, description, date, priority };
 };
+
+export { List, Todo};
