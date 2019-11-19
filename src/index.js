@@ -3,9 +3,9 @@ import load from './js/pageload';
 import { getTodoFormData } from './js/todoFormData';
 import { getListFormData } from './js/listFormData';
 // import { createList, showTodo } from './js/updateList';
-
+  let todoContainer = null;
 window.onload = () => {
-  const todoContainer = load();
+todoContainer = load();
 
   todoContainer.update();
 
@@ -28,12 +28,19 @@ window.onload = () => {
     }
   });
 
+
+
+}
 function listListener(){
   const listItems = document.querySelectorAll('.todoLists .todoItem');
   for (let i=0; i < listItems.length;i+=1){
     listItems[i].addEventListener('click', () => {
-      return i;
+      todoContainer.currentList = i;
+      
+      todoContainer.update();
     });
   }
 }
-}
+
+
+export {listListener};

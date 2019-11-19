@@ -1,4 +1,5 @@
 import { createList, showTodo } from './updateList';
+import { listListener } from '../index'
 
 const List = (listName) => {
   let name = listName;
@@ -25,6 +26,9 @@ const Container = () => {
   const update = () => {
     createList(lists);
     showTodo(lists[currentList].todos);
+    listListener();
+    console.log(currentList+' test');
+
   };
 
   function addTodo(data) {
@@ -37,7 +41,7 @@ const Container = () => {
     lists.push(newlist);
   }
 
-  return { lists, listDom, todoDom, update, addList, addTodo };
+  return { lists, listDom, todoDom, update, addList, addTodo, currentList };
 };
 
 export { List, Todo, Container };
