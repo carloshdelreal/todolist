@@ -32,7 +32,9 @@ function createForm() {
 
   // priority
   const todoFieldPriority = createElem('div', '', ['form-group', 'bullets']);
-  todoFieldPriority.appendChild(bulletField(1));
+  const defaultBullet = bulletField(1);
+  defaultBullet.firstChild.checked = true;
+  todoFieldPriority.appendChild(defaultBullet);
   todoFieldPriority.appendChild(bulletField(2));
   todoFieldPriority.appendChild(bulletField(3));
   todoFieldPriority.appendChild(bulletField(4));

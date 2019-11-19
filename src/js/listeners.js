@@ -2,6 +2,7 @@ export default function() {
   const btn = document.querySelector('.formTodo button');
   btn.addEventListener('click', () => {
     console.log(getFormsData());
+    createTodo();
   });
 }
 
@@ -41,6 +42,7 @@ function resetBulletsValue(radios) {
       radios[i].checked = false;
     }
   }
+  radios[0].checked = true;
 }
 
 function formDataValid() {
