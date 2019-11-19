@@ -26,4 +26,11 @@ window.onload = () => {
       todoContainer.update();
     }
   });
+
+  const listItems = document.querySelectorAll('.todoLists .todoItem');
+  listItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      console.log('works');
+    });
+  });
 };
