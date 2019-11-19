@@ -1,5 +1,5 @@
 import { createList, showTodo } from './updateList';
-import { listListener } from '../index'
+import { listListener } from '../index';
 
 const List = (listName) => {
   let name = listName;
@@ -27,13 +27,14 @@ const Container = () => {
     createList(lists);
     showTodo(lists[currentList].todos);
     listListener();
-    console.log(currentList+' test');
-
   };
 
   function addTodo(data) {
     const newTodo = Todo(data.title, data.description, data.date, data.priority);
     lists[currentList].todos.push(newTodo);
+  }
+  function setCurrentList(number) {
+    currentList = number;
   }
 
   function addList(list) {
@@ -41,7 +42,7 @@ const Container = () => {
     lists.push(newlist);
   }
 
-  return { lists, listDom, todoDom, update, addList, addTodo, currentList };
+  return { lists, listDom, todoDom, update, addList, addTodo, setCurrentList };
 };
 
 export { List, Todo, Container };

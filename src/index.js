@@ -2,13 +2,12 @@ import './style.scss';
 import load from './js/pageload';
 import { getTodoFormData } from './js/todoFormData';
 import { getListFormData } from './js/listFormData';
-// import { createList, showTodo } from './js/updateList';
-  let todoContainer = null;
+
+let todoContainer = null;
+
 window.onload = () => {
-todoContainer = load();
-
+  todoContainer = load();
   todoContainer.update();
-
   const btn = document.querySelector('.formTodo button');
   btn.addEventListener('click', () => {
     const data = getTodoFormData();
@@ -27,20 +26,15 @@ todoContainer = load();
       listListener();
     }
   });
-
-
-
-}
-function listListener(){
+};
+function listListener() {
   const listItems = document.querySelectorAll('.todoLists .todoItem');
-  for (let i=0; i < listItems.length;i+=1){
+  for (let i = 0; i < listItems.length; i += 1) {
     listItems[i].addEventListener('click', () => {
-      todoContainer.currentList = i;
-      
+      todoContainer.setCurrentList(i);
       todoContainer.update();
     });
   }
 }
 
-
-export {listListener};
+export { listListener };
