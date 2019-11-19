@@ -65,7 +65,12 @@ function formList() {
   todoTitle.placeholder = 'List Name';
   todoFieldTitle.appendChild(todoTitle);
 
+  // button
+  const todoBtn = createElem('button', '', ['btn', 'btn-success']);
+  todoBtn.innerText = 'add list';
+
   todoFields.appendChild(todoFieldTitle);
+  todoFields.appendChild(todoBtn);
 
   return todoFields;
 }

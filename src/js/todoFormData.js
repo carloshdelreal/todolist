@@ -1,12 +1,4 @@
-export default function() {
-  const btn = document.querySelector('.formTodo button');
-  btn.addEventListener('click', () => {
-    console.log(getFormsData());
-    createTodo();
-  });
-}
-
-function getFormsData() {
+function getTodoFormData() {
   const input = document.querySelectorAll('.formTodo input');
   const desc = document.querySelector('.formTodo textarea');
   const bullets = document.querySelectorAll('.formTodo .bullets .form-check-input');
@@ -78,3 +70,4 @@ function formDataValid() {
     return true;
   }
 }
+export { getTodoFormData };
