@@ -24,13 +24,16 @@ window.onload = () => {
     if (data) {
       todoContainer.addList(data);
       todoContainer.update();
+      listListener();
     }
   });
 
+function listListener(){
   const listItems = document.querySelectorAll('.todoLists .todoItem');
-  listItems.forEach((item) => {
-    item.addEventListener('click', () => {
-      console.log('works');
+  for (let i=0; i < listItems.length;i+=1){
+    listItems[i].addEventListener('click', () => {
+      return i;
     });
-  });
-};
+  }
+}
+}
