@@ -3,7 +3,7 @@ import bulletField from './bulletField';
 
 // Create Activity Form
 function createForm() {
-  const todoFields = createElem('div', '', ['form']);
+  const todoFields = createElem('div', '', ['formTodo']);
 
   // Title
   const todoFieldTitle = createDiv(['form-group']);
@@ -31,7 +31,7 @@ function createForm() {
   todoFieldPriorityLab.appendChild(todoFieldPriorityLabel);
 
   // priority
-  const todoFieldPriority = createElem('div', '', ['form-group']);
+  const todoFieldPriority = createElem('div', '', ['form-group', 'bullets']);
   todoFieldPriority.appendChild(bulletField(1));
   todoFieldPriority.appendChild(bulletField(2));
   todoFieldPriority.appendChild(bulletField(3));
@@ -55,7 +55,7 @@ function createForm() {
 
 // create todo classes form
 function formList() {
-  const todoFields = createElem('div', '', ['form']);
+  const todoFields = createElem('div', '', ['formList']);
 
   // Title
   const todoFieldTitle = createDiv(['form-group']);
