@@ -22,7 +22,7 @@ function createListTodos(todos) {
   const list = createElem('ul', '', ['todos', 'list-group']);
   todos.forEach((elem) => {
     const item = createElem('li', '', ['todoItem']);
-    item.innerText = elem.title;
+    item.innerText = elem.title+' Due date:'+ elem.date;
     list.appendChild(item);
   });
   const listContainer = document.querySelector('.todos');
