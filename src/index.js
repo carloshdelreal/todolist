@@ -8,6 +8,7 @@ let todoContainer = null;
 window.onload = () => {
   todoContainer = load();
   todoContainer.update();
+
   const btn = document.querySelector('.formTodo button');
   btn.addEventListener('click', () => {
     const data = getTodoFormData();
@@ -16,7 +17,8 @@ window.onload = () => {
       todoContainer.update();
     }
   });
-
+  const addT = document.querySelector('.pop-up');
+  const closeT = document.querySelector('.btn-danger');
   const btnList = document.querySelector('.formList button');
   btnList.addEventListener('click', () => {
     const data = getListFormData();
@@ -26,7 +28,16 @@ window.onload = () => {
       listListener();
     }
   });
+  const form = document.querySelector('.formTodo');
+  addT.addEventListener('click', () =>{
+
+    form.style.display = "block";
+  });
+  closeT.addEventListener('click', () => {
+    form.style.display = "none";
+  });
 };
+
 function listListener() {
   const listItems = document.querySelectorAll('.todoLists .todoItem');
   for (let i = 0; i < listItems.length; i += 1) {

@@ -4,6 +4,7 @@ import bulletField from './bulletField';
 // Create Activity Form
 function createForm() {
   const todoFields = createElem('div', '', ['formTodo']);
+  const todopop = createElem('div', '', ['formpop']);
 
   // Title
   const todoFieldTitle = createDiv(['form-group']);
@@ -44,13 +45,18 @@ function createForm() {
   const todoBtn = createElem('button', '', ['btn', 'btn-success']);
   todoBtn.innerText = 'add';
 
+  const closeBtn = createElem('button', '', ['btn', 'btn-danger']);
+  closeBtn.innerText = 'Close';
+
   // Put everything together
-  todoFields.appendChild(todoFieldTitle);
-  todoFields.appendChild(todoFieldDescription);
-  todoFields.appendChild(todoFieldDate);
-  todoFields.appendChild(todoFieldPriorityLab);
-  todoFields.appendChild(todoFieldPriority);
-  todoFields.appendChild(todoBtn);
+  todopop.appendChild(todoFieldTitle);
+  todopop.appendChild(todoFieldDescription);
+  todopop.appendChild(todoFieldDate);
+  todopop.appendChild(todoFieldPriorityLab);
+  todopop.appendChild(todoFieldPriority);
+  todopop.appendChild(todoBtn);
+  todopop.appendChild(closeBtn);
+  todoFields.appendChild(todopop)
 
   return todoFields;
 }
