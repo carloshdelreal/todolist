@@ -1,4 +1,4 @@
-import { createList, showTodo } from './updateList';
+import { createList, createListTodos } from './updateList';
 import { listListener } from '../index';
 
 const List = (listName) => {
@@ -24,8 +24,8 @@ const Container = () => {
   const lists = [];
 
   const update = () => {
-    createList(lists);
-    showTodo(lists[currentList].todos);
+    createList(lists, currentList);
+    createListTodos(lists[currentList].todos);
     listListener();
   };
 

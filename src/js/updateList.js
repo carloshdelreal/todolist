@@ -1,7 +1,7 @@
 import { createElem } from './elmcreator';
-function createList(todo) {
+function createList(lists, currenList) {
   const list = createElem('ul', '', ['todoLists', 'list-group']);
-  todo.forEach((elem) => {
+  lists.forEach((elem) => {
     const item = createElem('li', '', [
       'todoItem',
       'list-group-item',
@@ -12,15 +12,15 @@ function createList(todo) {
     item.innerText = elem.name;
     list.appendChild(item);
   });
-  list.firstElementChild.classList.add('list-group-item-primary');
+  list.children[currenList].classList.add('list-group-item-primary');
   const listContainer = document.querySelector('.list');
   listContainer.innerHTML = '';
   listContainer.appendChild(list);
 }
 
-function showTodo(todo) {
+function createListTodos(todos) {
   const list = createElem('ul', '', ['todos', 'list-group']);
-  todo.forEach((elem) => {
+  todos.forEach((elem) => {
     const item = createElem('li', '', ['todoItem']);
     item.innerText = elem.title;
     list.appendChild(item);
@@ -29,4 +29,4 @@ function showTodo(todo) {
   listContainer.innerHTML = '';
   listContainer.appendChild(list);
 }
-export { createList, showTodo };
+export { createList, createListTodos };
