@@ -25,7 +25,7 @@ const Container = () => {
 
   const update = () => {
     createList(lists, currentList);
-    createListTodos(lists[currentList].todos);
+    createListTodos(lists, currentList);
     listListener();
     deleteListener();
     listdeleteListener();

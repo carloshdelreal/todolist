@@ -15,16 +15,20 @@ function createList(lists, currenList) {
     item.appendChild(deleteBin);
     list.appendChild(item);
   });
-  list.children[currenList].classList.add('list-group-item-primary');
   const listContainer = document.querySelector('.list');
-  listContainer.innerHTML = '';
 
-
-
+  if (lists.length > 0){
+    list.children[currenList].classList.add('list-group-item-primary');
+    listContainer.innerHTML = '';
+  }
   listContainer.appendChild(list);
 }
 
-function createListTodos(todos) {
+function createListTodos(lists, currentList) {
+  let todos = []
+  if ( lists.length > 0 ){
+    todos = lists[currentList].todos
+  }
   const list = createElem('ul', '', ['todos', 'list-group']);
   todos.forEach((elem) => {
     const item = createElem('li', '', ['todoItem']);
