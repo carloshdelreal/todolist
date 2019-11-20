@@ -1,5 +1,5 @@
 import { createList, createListTodos } from './updateList';
-import { listListener, deleteListener,listdeleteListener } from '../index';
+import { listListener, deleteListener,listdeleteListener, changeList } from '../index';
 
 const List = (listName) => {
   let name = listName;
@@ -35,8 +35,8 @@ const Container = () => {
     lists[currentList].todos.splice(index,1);
   }
 
-  const deleteList =(index) =>{
-    lists.splice(index,1);
+  const deleteList = (index) =>{
+    lists.splice(index, 1);
   }
 
   function addTodo(data) {

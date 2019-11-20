@@ -10,59 +10,54 @@ window.onload = () => {
   todoContainer = load();
   todoContainer.update();
 
-
+  // add todo
   const btn = document.querySelector('.formTodo button');
   btn.addEventListener('click', () => {
     const data = getTodoFormData();
     if (data) {
       todoContainer.addTodo(data);
       todoContainer.update();
-      deleteListener();
     }
   });
-  const addT = document.querySelector('.pop-up');
-  const closeT = document.querySelector('.btn-danger');
+   
+  // add list
   const btnList = document.querySelector('.formList button');
   btnList.addEventListener('click', () => {
     const data = getListFormData();
     if (data) {
       todoContainer.addList(data);
       todoContainer.update();
-      listListener();
-      listdeleteListener()
-
     }
   });
-  const form = document.querySelector('.formTodo');
-  addT.addEventListener('click', () =>{
-    form.style.display = "block";
-  });
-
-  closeT.addEventListener('click', () => {
-    form.style.display = "none";
-  });
-  listdeleteListener();
 };
 
+// adds list items listeners
 function listListener() {
   const listItems = document.querySelectorAll('.todoLists .todoItem');
   for (let i = 0; i < listItems.length; i += 1) {
     listItems[i].addEventListener('click', () => {
       todoContainer.setCurrentList(i);
-
       todoContainer.update();
       changeList(i);
     });
   }
 }
 
+// higlights selected list
 function changeList(index) {
-  const listItems = document.querySelectorAll('.todoLists .todoItem');
-  const test = document.querySelector('.list-group-item-primary');
-  test.classList.remove('list-group-item-primary');
-  listItems[index].classList.add('list-group-item-primary');
+  if (todoContainer.lists.length > 0){
+    const listItems = document.querySelectorAll('.todoLists .todoItem');
+    const test = document.querySelector('.list-group-item-primary');
+    if (test){
+      test.classList.remove('list-group-item-primary');
+    }
+    if (listItems[index]){
+      listItems[index].classList.add('list-group-item-primary');
+    }
+  }
 }
 
+// adds delete todo listeners
 function deleteListener(){
   let btt =document.querySelectorAll('.list-group .card .bin');
   for (let i = 0; i <btt.length; i += 1) {
@@ -71,17 +66,14 @@ function deleteListener(){
       todoContainer.update();
       });
   }
-
 }
 
+// adds delete list listeners
 function listdeleteListener(){
   let btt =document.querySelectorAll('.list-group .binlist');
   for (let i = 0; i <btt.length; i += 1) {
     btt[i].addEventListener('click', () => {
-      console.log(i);
       todoContainer.deleteList(i);
-      todoContainer.update();
-
       });
   }
 
@@ -89,4 +81,4 @@ function listdeleteListener(){
 
 
 
-export { listListener, deleteListener, listdeleteListener };
+export { listListener, deleteListener, listdeleteListener, changeList };

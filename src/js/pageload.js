@@ -1,6 +1,7 @@
 import { createDiv,createElem } from './elmcreator';
 import { createForm, formList } from './todoForms';
 import { Todo, List, Container } from './todo';
+import domListeners from './domListeners'
 
 export default function load() {
   // Content
@@ -30,6 +31,8 @@ export default function load() {
 
   rightColumn.appendChild(todosD);
   leftColumn.appendChild(listD);
+
+  domListeners()
 
   return todoContainer;
 }

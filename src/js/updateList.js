@@ -1,5 +1,6 @@
 import { createElem } from './elmcreator';
-function createList(lists, currenList) {
+
+function createList(lists, currentList) {
   const list = createElem('ul', '', ['todoLists', 'list-group']);
   lists.forEach((elem) => {
     const item = createElem('li', '', [
@@ -15,21 +16,18 @@ function createList(lists, currenList) {
     item.appendChild(deleteBin);
     list.appendChild(item);
   });
-  const listContainer = document.querySelector('.list');
 
-  if (lists.length > 0){
-    list.children[currenList].classList.add('list-group-item-primary');
-    listContainer.innerHTML = '';
-  }
+  const listContainer = document.querySelector('.list');
+  listContainer.innerHTML = '';
   listContainer.appendChild(list);
 }
 
 function createListTodos(lists, currentList) {
   let todos = []
-  if ( lists.length > 0 ){
-    todos = lists[currentList].todos
-  }
   const list = createElem('ul', '', ['todos', 'list-group']);
+  if ( lists.length > 0 && lists[currentList] != null ){
+    todos = lists[currentList].todos;
+  }
   todos.forEach((elem) => {
     const item = createElem('li', '', ['todoItem']);
     const card = createElem('div', '', ['card']);
@@ -46,6 +44,7 @@ function createListTodos(lists, currentList) {
     card.appendChild(body);
     item.appendChild(card);
     list.appendChild(item);
+
   });
   const listContainer = document.querySelector('.todos');
   listContainer.innerHTML = '';
