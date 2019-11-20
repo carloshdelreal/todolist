@@ -34,13 +34,12 @@ window.onload = () => {
   });
   const form = document.querySelector('.formTodo');
   addT.addEventListener('click', () =>{
-
     form.style.display = "block";
   });
+  
   closeT.addEventListener('click', () => {
     form.style.display = "none";
   });
-  deleteListener();
 };
 
 function listListener() {
@@ -61,13 +60,14 @@ function changeList(index) {
   test.classList.remove('list-group-item-primary');
   listItems[index].classList.add('list-group-item-primary');
 }
+
 function deleteListener(){
   let btt =document.querySelectorAll('.list-group .card .bin');
   for (let i = 0; i <btt.length; i += 1) {
     btt[i].addEventListener('click', () => {
-      const currntL=todoContainer.currentList;
-      const index = i;
-      deleteTask(currntL, index);
+      todoContainer.deleteTodo(i);
+      console.log(i);
+      todoContainer.update();
       });
   }
 
@@ -75,4 +75,4 @@ function deleteListener(){
 
 
 
-export { listListener };
+export { listListener, deleteListener };
