@@ -2,7 +2,7 @@ import './style.scss';
 import load from './js/pageload';
 import { getTodoFormData } from './js/todoFormData';
 import { getListFormData } from './js/todoFormListData';
-import {deleteTask} from './js/delete';
+
 
 let todoContainer = null;
 
@@ -36,7 +36,7 @@ window.onload = () => {
   addT.addEventListener('click', () =>{
     form.style.display = "block";
   });
-  
+
   closeT.addEventListener('click', () => {
     form.style.display = "none";
   });
@@ -66,7 +66,6 @@ function deleteListener(){
   for (let i = 0; i <btt.length; i += 1) {
     btt[i].addEventListener('click', () => {
       todoContainer.deleteTodo(i);
-      console.log(i);
       todoContainer.update();
       });
   }
