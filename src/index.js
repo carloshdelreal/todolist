@@ -29,6 +29,7 @@ window.onload = () => {
       todoContainer.addList(data);
       todoContainer.update();
       listListener();
+      listdeleteListener()
 
     }
   });
@@ -40,6 +41,7 @@ window.onload = () => {
   closeT.addEventListener('click', () => {
     form.style.display = "none";
   });
+  listdeleteListener();
 };
 
 function listListener() {
@@ -72,6 +74,19 @@ function deleteListener(){
 
 }
 
+function listdeleteListener(){
+  let btt =document.querySelectorAll('.list-group .binlist');
+  for (let i = 0; i <btt.length; i += 1) {
+    btt[i].addEventListener('click', () => {
+      console.log(i);
+      todoContainer.deleteList(i);
+      todoContainer.update();
+
+      });
+  }
+
+}
 
 
-export { listListener, deleteListener };
+
+export { listListener, deleteListener, listdeleteListener };

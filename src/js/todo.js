@@ -1,5 +1,5 @@
 import { createList, createListTodos } from './updateList';
-import { listListener, deleteListener } from '../index';
+import { listListener, deleteListener,listdeleteListener } from '../index';
 
 const List = (listName) => {
   let name = listName;
@@ -27,11 +27,16 @@ const Container = () => {
     createList(lists, currentList);
     createListTodos(lists[currentList].todos);
     listListener();
-    deleteListener()
+    deleteListener();
+    listdeleteListener();
   };
-  
+
   const deleteTodo = (index) => {
     lists[currentList].todos.splice(index,1);
+  }
+
+  const deleteList =(index) =>{
+    lists.splice(index,1);
   }
 
   function addTodo(data) {
@@ -47,7 +52,7 @@ const Container = () => {
     lists.push(newlist);
   }
 
-  return { lists, listDom, todoDom, update, addList, addTodo, setCurrentList, deleteTodo };
+  return { lists, listDom, todoDom, update, addList, addTodo, setCurrentList, deleteTodo, deleteList };
 };
 
 export { List, Todo, Container };
