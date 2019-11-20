@@ -31,10 +31,21 @@ function listListener() {
   const listItems = document.querySelectorAll('.todoLists .todoItem');
   for (let i = 0; i < listItems.length; i += 1) {
     listItems[i].addEventListener('click', () => {
+
       todoContainer.setCurrentList(i);
+
       todoContainer.update();
+      changeList(i);
     });
   }
+}
+
+function changeList(index){
+  const listItems = document.querySelectorAll('.todoLists .todoItem');
+  const test= document.querySelector('.list-group-item-primary');
+  test.classList.remove("list-group-item-primary");
+  listItems[index].classList.add('list-group-item-primary');
+
 }
 
 export { listListener };
