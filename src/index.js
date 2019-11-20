@@ -2,6 +2,7 @@ import './style.scss';
 import load from './js/pageload';
 import { getTodoFormData } from './js/todoFormData';
 import { getListFormData } from './js/todoFormListData';
+import {deleteTask} from './js/delete';
 
 let todoContainer = null;
 
@@ -16,6 +17,7 @@ window.onload = () => {
     if (data) {
       todoContainer.addTodo(data);
       todoContainer.update();
+      deleteListener();
     }
   });
   const addT = document.querySelector('.pop-up');
@@ -27,7 +29,7 @@ window.onload = () => {
       todoContainer.addList(data);
       todoContainer.update();
       listListener();
-      deleteTask();
+
     }
   });
   const form = document.querySelector('.formTodo');
@@ -38,6 +40,7 @@ window.onload = () => {
   closeT.addEventListener('click', () => {
     form.style.display = "none";
   });
+  deleteListener();
 };
 
 function listListener() {
@@ -58,17 +61,18 @@ function changeList(index) {
   test.classList.remove('list-group-item-primary');
   listItems[index].classList.add('list-group-item-primary');
 }
-
-function deleteTask(){
-  let test = document.querySelectorAll('.list-group .card .bin');
-  for (let i = 0; i <=test.length; i += 1) {
-    test[i].addEventListener('click', () => {
-      console.log("jelo");
-      //console.log(currentlist);
-      //console.log(ind);
-    });
+function deleteListener(){
+  let btt =document.querySelectorAll('.list-group .card .bin');
+  for (let i = 0; i <btt.length; i += 1) {
+    btt[i].addEventListener('click', () => {
+      const currntL=todoContainer.currentList;
+      const index = i;
+      deleteTask(currntL, index);
+      });
   }
 
 }
-  deleteTask();
+
+
+
 export { listListener };
