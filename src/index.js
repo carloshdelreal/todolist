@@ -9,6 +9,7 @@ window.onload = () => {
   todoContainer = load();
   todoContainer.update();
 
+
   const btn = document.querySelector('.formTodo button');
   btn.addEventListener('click', () => {
     const data = getTodoFormData();
@@ -26,6 +27,7 @@ window.onload = () => {
       todoContainer.addList(data);
       todoContainer.update();
       listListener();
+      deleteTask();
     }
   });
   const form = document.querySelector('.formTodo');
@@ -57,4 +59,16 @@ function changeList(index) {
   listItems[index].classList.add('list-group-item-primary');
 }
 
+function deleteTask(){
+  let test = document.querySelectorAll('.list-group .card .bin');
+  for (let i = 0; i <=test.length; i += 1) {
+    test[i].addEventListener('click', () => {
+      console.log("jelo");
+      //console.log(currentlist);
+      //console.log(ind);
+    });
+  }
+
+}
+  deleteTask();
 export { listListener };

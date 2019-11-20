@@ -21,8 +21,11 @@ function createForm() {
   // date
   const todoFieldDate = createDiv(['form-group']);
   const todoDueDate = createElem('input', '', ['due-date', 'form-control']);
+
   todoDueDate.type = 'date';
   todoFieldDate.appendChild(todoDueDate);
+
+
 
   // priority label
   const todoFieldPriorityLab = createElem('div', 'priority', ['form-group']);
