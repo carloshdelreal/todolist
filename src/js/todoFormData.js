@@ -8,12 +8,13 @@ function getBulletsValue(radios) {
 }
 
 function resetBulletsValue(radios) {
+  const radio = radios;
   for (let i = 0; i < radios.length; i += 1) {
-    if (radios[i].checked) {
-      radios[i].checked = false;
+    if (radio[i].checked) {
+      radio[i].checked = false;
     }
   }
-  radios[0].checked = true;
+  radio[0].checked = true;
 }
 
 function formDataValid() {
@@ -32,9 +33,7 @@ function formDataValid() {
 function getTodoFormData() {
   const input = document.querySelectorAll('.formTodo input');
   const desc = document.querySelector('.formTodo textarea');
-  const bullets = document.querySelectorAll(
-    '.formTodo .bullets .form-check-input',
-  );
+  const bullets = document.querySelectorAll('.formTodo .bullets .form-check-input');
 
   const title = input[0].value;
   const description = desc.value;
