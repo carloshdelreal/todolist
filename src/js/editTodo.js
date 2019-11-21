@@ -24,7 +24,7 @@ function updateData() {
   const priority = getBulletsValue(bullets);
   const index = document.querySelector('.hidden').value;
   return {
-    title, description, date, priority, index
+    title, description, date, priority, index,
   };
 }
 

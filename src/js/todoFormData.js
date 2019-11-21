@@ -33,7 +33,7 @@ function getTodoFormData() {
   const input = document.querySelectorAll('.formTodo input');
   const desc = document.querySelector('.formTodo textarea');
   const bullets = document.querySelectorAll(
-    '.formTodo .bullets .form-check-input'
+    '.formTodo .bullets .form-check-input',
   );
 
   const title = input[0].value;
@@ -56,7 +56,7 @@ function getTodoFormData() {
       title,
       description,
       date,
-      priority
+      priority,
     };
   }
   return null;

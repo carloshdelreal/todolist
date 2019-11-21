@@ -35,8 +35,8 @@ export default function load() {
         'Name',
         'This is the Descriptio',
         `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`,
-        3
-      )
+        3,
+      ),
     );
     todoContainer.lists.push(list);
   }

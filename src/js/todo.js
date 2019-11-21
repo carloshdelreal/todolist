@@ -3,7 +3,7 @@ import {
   listListener,
   deleteListener,
   listdeleteListener,
-  saveCurrentState
+  saveCurrentState,
 } from '../index';
 
 const List = (listName) => {
@@ -20,7 +20,7 @@ const Todo = (todoTitle, todoDescription, todoDate, todoPriority) => {
   const priority = todoPriority;
 
   return {
-    title, description, date, priority
+    title, description, date, priority,
   };
 };
 
@@ -52,7 +52,7 @@ const Container = () => {
       data.title,
       data.description,
       data.date,
-      data.priority
+      data.priority,
     );
     lists[currentList].todos.push(newTodo);
   }
@@ -72,7 +72,7 @@ const Container = () => {
       data.title,
       data.description,
       data.date,
-      data.priority
+      data.priority,
     );
 
     lists[currentList].todos[data.index] = newTodo;
@@ -89,7 +89,7 @@ const Container = () => {
     deleteTodo,
     deleteList,
     getList,
-    updateTodo
+    updateTodo,
   };
 };
 
