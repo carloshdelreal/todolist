@@ -54,6 +54,7 @@ function formDataValid() {
     input[0].classList.add('is-invalid');
     return false;
   } else {
+    console.log('valid');
     input[0].classList.remove('is-invalid');
     return true;
   }

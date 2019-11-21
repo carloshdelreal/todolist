@@ -8,7 +8,10 @@ function createForm() {
 
   // Title
   const todoFieldTitle = createDiv(['form-group']);
-  const todoTitle = createElem('input', 'todoTitle', ['title', 'form-control']);
+  const todoTitle = createElem('input', 'todoTitleForm', [
+    'title',
+    'form-control',
+  ]);
   todoTitle.placeholder = 'Todo';
   todoFieldTitle.appendChild(todoTitle);
 
