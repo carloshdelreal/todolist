@@ -2,7 +2,7 @@ import './style.scss';
 import load from './js/pageload';
 import { getTodoFormData } from './js/todoFormData';
 import { getListFormData } from './js/todoFormListData';
-import { loadData,updateData } from './js/editTodo';
+import { loadData, updateData } from './js/editTodo';
 let todoContainer = null;
 
 window.onload = () => {
@@ -38,8 +38,6 @@ window.onload = () => {
       todoContainer.update();
     }
   });
-
-
 };
 
 // adds list items listeners
@@ -60,10 +58,9 @@ function listListener() {
     cards[i].addEventListener('click', () => {
       const currentTodo = todoContainer.getList().todos[i];
 
-      loadData(currentTodo,i);
+      loadData(currentTodo, i);
     });
   }
-
 }
 
 // higlights selected list

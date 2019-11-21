@@ -1,5 +1,5 @@
 import { createList, createListTodos } from './updateList';
-import { listListener, deleteListener,listdeleteListener } from '../index';
+import { listListener, deleteListener, listdeleteListener } from '../index';
 
 const List = (listName) => {
   let name = listName;
@@ -32,21 +32,26 @@ const Container = () => {
   };
 
   const deleteTodo = (index) => {
-    lists[currentList].todos.splice(index,1);
-  }
+    lists[currentList].todos.splice(index, 1);
+  };
 
-  const deleteList = (index) =>{
+  const deleteList = (index) => {
     lists.splice(index, 1);
-  }
+  };
 
   function addTodo(data) {
-    const newTodo = Todo(data.title, data.description, data.date, data.priority);
+    const newTodo = Todo(
+      data.title,
+      data.description,
+      data.date,
+      data.priority
+    );
     lists[currentList].todos.push(newTodo);
   }
   function setCurrentList(number) {
     currentList = number;
   }
-  function getList(){
+  function getList() {
     return lists[currentList];
   }
   function addList(list) {
@@ -55,12 +60,29 @@ const Container = () => {
   }
 
   function updateTodo(data) {
-    const newTodo = Todo(data.title, data.description, data.date, data.priority);
+    const newTodo = Todo(
+      data.title,
+      data.description,
+      data.date,
+      data.priority
+    );
 
     lists[currentList].todos[data.index] = newTodo;
   }
 
-  return { lists, listDom, todoDom, update, addList, addTodo, setCurrentList, deleteTodo, deleteList, getList,updateTodo };
+  return {
+    lists,
+    listDom,
+    todoDom,
+    update,
+    addList,
+    addTodo,
+    setCurrentList,
+    deleteTodo,
+    deleteList,
+    getList,
+    updateTodo,
+  };
 };
 
 export { List, Todo, Container };

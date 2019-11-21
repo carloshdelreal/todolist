@@ -1,21 +1,23 @@
-
-export default function(){
+export default function() {
   const form = document.querySelector('.formTodo');
-  const form1 = document.querySelector('.formTodo1');
+  const formEdit = document.querySelector('.formTodo1');
+
   // open create todo window
   const addT = document.querySelector('.pop-up');
-  addT.addEventListener('click', () =>{
-    form.style.display = "block";
+  addT.addEventListener('click', () => {
+    form.style.display = 'block';
+    document.querySelector('#inlineRadio1').checked = true;
   });
 
   // close create dodo window
   const closeT = document.querySelector('.btn-danger');
   closeT.addEventListener('click', () => {
-    form.style.display = "none";
+    form.style.display = 'none';
   });
 
+  // close form Edit
   const closeT2 = document.querySelector('.formTodo1 .btn-danger');
   closeT2.addEventListener('click', () => {
-    form1.style.display = "none";
+    formEdit.style.display = 'none';
   });
 }

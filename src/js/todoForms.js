@@ -42,9 +42,8 @@ function createForm() {
 
   // priority
   const todoFieldPriority = createElem('div', '', ['form-group', 'bullets']);
-  const defaultBullet = bulletField(1);
-  defaultBullet.firstChild.checked = true;
-  todoFieldPriority.appendChild(defaultBullet);
+
+  todoFieldPriority.appendChild(bulletField(1));
   todoFieldPriority.appendChild(bulletField(2));
   todoFieldPriority.appendChild(bulletField(3));
   todoFieldPriority.appendChild(bulletField(4));
@@ -90,79 +89,73 @@ function formList() {
   return todoFields;
 }
 
-  function formEditTodo(){
+function formEditTodo() {
+  const todoFields = createElem('div', '', ['formTodo1']);
+  const todopop = createElem('div', '', ['formpop1']);
 
-    const todoFields = createElem('div', '', ['formTodo1']);
-    const todopop = createElem('div', '', ['formpop1']);
+  // Title
+  const todoFieldTitle = createDiv(['form-group']);
+  const todoTitle = createElem('input', 'name', ['title', 'form-control']);
+  todoTitle.value = '';
+  todoFieldTitle.appendChild(todoTitle);
 
-    // Title
-    const todoFieldTitle = createDiv(['form-group']);
-    const todoTitle = createElem('input', 'name', [
-      'title',
-      'form-control',
-    ]);
-    todoTitle.value = '';
-    todoFieldTitle.appendChild(todoTitle);
+  // description
+  const todoFieldDescription = createDiv(['form-group']);
+  const todoDescription = createElem('textarea', '', [
+    'description',
+    'form-control',
+  ]);
+  todoDescription.placeholder = 'Description';
+  todoFieldDescription.appendChild(todoDescription);
 
-    // description
-    const todoFieldDescription = createDiv(['form-group']);
-    const todoDescription = createElem('textarea', '', [
-      'description',
-      'form-control',
-    ]);
-    todoDescription.placeholder = 'Description';
-    todoFieldDescription.appendChild(todoDescription);
+  // date
+  const todoFieldDate = createDiv(['form-group']);
+  const todoDueDate = createElem('input', '', ['due-date', 'form-control']);
 
-    // date
-    const todoFieldDate = createDiv(['form-group']);
-    const todoDueDate = createElem('input', '', ['due-date', 'form-control']);
+  todoDueDate.type = 'date';
+  const cDate = new Date();
+  todoDueDate.value = `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`;
+  todoFieldDate.appendChild(todoDueDate);
 
-    todoDueDate.type = 'date';
-    const cDate = new Date();
-    todoDueDate.value = `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`;
-    todoFieldDate.appendChild(todoDueDate);
+  // priority label
+  const todoFieldPriorityLab = createElem('div', 'priority', ['form-group']);
+  const todoFieldPriorityLabel = createElem('label', '', ['form-check-label']);
+  todoFieldPriorityLabel.setAttribute('for', 'priority');
+  todoFieldPriorityLabel.innerText = 'Priority';
+  todoFieldPriorityLab.appendChild(todoFieldPriorityLabel);
 
-    // priority label
-    const todoFieldPriorityLab = createElem('div', 'priority', ['form-group']);
-    const todoFieldPriorityLabel = createElem('label', '', ['form-check-label']);
-    todoFieldPriorityLabel.setAttribute('for', 'priority');
-    todoFieldPriorityLabel.innerText = 'Priority';
-    todoFieldPriorityLab.appendChild(todoFieldPriorityLabel);
+  // priority
+  const todoFieldPriority = createElem('div', '', ['form-group', 'bullets']);
+  const defaultBullet = bulletField(1);
+  defaultBullet.firstChild.checked = true;
+  todoFieldPriority.appendChild(defaultBullet);
+  todoFieldPriority.appendChild(bulletField(2));
+  todoFieldPriority.appendChild(bulletField(3));
+  todoFieldPriority.appendChild(bulletField(4));
+  todoFieldPriority.appendChild(bulletField(5));
 
-    // priority
-    const todoFieldPriority = createElem('div', '', ['form-group', 'bullets']);
-    const defaultBullet = bulletField(1);
-    defaultBullet.firstChild.checked = true;
-    todoFieldPriority.appendChild(defaultBullet);
-    todoFieldPriority.appendChild(bulletField(2));
-    todoFieldPriority.appendChild(bulletField(3));
-    todoFieldPriority.appendChild(bulletField(4));
-    todoFieldPriority.appendChild(bulletField(5));
+  const index = createElem('input', '', ['hidden']);
+  index.setAttribute('hidden', true);
 
+  // button
+  const todoBtn = createElem('button', '', ['btn', 'btn-success']);
+  todoBtn.innerText = 'Update';
 
-    const index = createElem('input', '', ['hidden']);
-    index.setAttribute('hidden',true);
+  const closeBtn = createElem('button', '', ['btn', 'btn-danger']);
+  closeBtn.innerText = 'Close';
 
-    // button
-    const todoBtn = createElem('button', '', ['btn', 'btn-success']);
-    todoBtn.innerText = 'Update';
+  // Put everything together
+  todopop.appendChild(todoFieldTitle);
+  todopop.appendChild(index);
+  todopop.appendChild(todoFieldDescription);
+  todopop.appendChild(todoFieldDate);
+  todopop.appendChild(todoFieldPriorityLab);
+  todopop.appendChild(todoFieldPriority);
+  todopop.appendChild(todoBtn);
+  todopop.appendChild(closeBtn);
+  todoFields.appendChild(todopop);
 
-    const closeBtn = createElem('button', '', ['btn', 'btn-danger']);
-    closeBtn.innerText = 'Close';
-
-    // Put everything together
-    todopop.appendChild(todoFieldTitle);
-    todopop.appendChild(index);
-    todopop.appendChild(todoFieldDescription);
-    todopop.appendChild(todoFieldDate);
-    todopop.appendChild(todoFieldPriorityLab);
-    todopop.appendChild(todoFieldPriority);
-    todopop.appendChild(todoBtn);
-    todopop.appendChild(closeBtn);
-    todoFields.appendChild(todopop);
-
-    return todoFields;
-
+  return todoFields;
 }
 
-export { createForm, formList,formEditTodo };
+export { createForm, formList, formEditTodo };
