@@ -23,12 +23,12 @@ function createList(lists) {
 }
 
 function createListTodos(lists, currentList) {
-  let todos = [];
+  let todo = [];
   const list = createElem('ul', '', ['todos', 'list-group']);
   if (lists.length > 0 && lists[currentList] != null) {
-    todos = lists[currentList].todos;
+    todo = lists[currentList].todos;
   }
-  todos.forEach((elem) => {
+  todo.forEach((elem) => {
     const item = createElem('li', '', ['todoItem']);
     const card = createElem('div', '', ['card']);
     const body = createElem('div', '', ['card-body']);
