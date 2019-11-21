@@ -2,7 +2,7 @@ import './style.scss';
 import load from './js/pageload';
 import { getTodoFormData } from './js/todoFormData';
 import { getListFormData } from './js/todoFormListData';
-
+import { loadData } from './js/editTodo';
 let todoContainer = null;
 
 window.onload = () => {
@@ -28,6 +28,8 @@ window.onload = () => {
       todoContainer.update();
     }
   });
+
+
 };
 
 // adds list items listeners
@@ -40,6 +42,15 @@ function listListener() {
       changeList(i);
     });
   }
+  const cards = document.querySelectorAll('.card');
+  for (let i = 0; i < cards.length; i += 1) {
+    cards[i].addEventListener('click', () => {
+      const currentTodo = todoContainer.getList().todos[i];
+
+      loadData(currentTodo);
+    });
+  }
+
 }
 
 // higlights selected list

@@ -1,5 +1,5 @@
 import { createList, createListTodos } from './updateList';
-import { listListener, deleteListener,listdeleteListener, changeList } from '../index';
+import { listListener, deleteListener,listdeleteListener } from '../index';
 
 const List = (listName) => {
   let name = listName;
@@ -46,13 +46,15 @@ const Container = () => {
   function setCurrentList(number) {
     currentList = number;
   }
-
+  function getList(){
+    return lists[currentList];
+  }
   function addList(list) {
     const newlist = List(list);
     lists.push(newlist);
   }
 
-  return { lists, listDom, todoDom, update, addList, addTodo, setCurrentList, deleteTodo, deleteList };
+  return { lists, listDom, todoDom, update, addList, addTodo, setCurrentList, deleteTodo, deleteList, getList };
 };
 
 export { List, Todo, Container };

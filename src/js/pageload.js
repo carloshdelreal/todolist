@@ -1,5 +1,5 @@
 import { createDiv,createElem } from './elmcreator';
-import { createForm, formList } from './todoForms';
+import { createForm, formList,formEditTodo } from './todoForms';
 import { Todo, List, Container } from './todo';
 import domListeners from './domListeners'
 
@@ -14,13 +14,16 @@ export default function load() {
   // Create Todo Objects
   const todoContainer = Container();
   const list = List('Test List');
-  list.todos.push(Todo('Name', 'description', 'Date', 3));
+  const cDate = new Date();
+
+  list.todos.push(Todo('Name', 'This is the Descriptio', `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`, 3));
   todoContainer.lists.push(list);
 
   content.appendChild(leftColumn);
   content.appendChild(rightColumn);
 
   rightColumn.appendChild(createForm());
+    rightColumn.appendChild(formEditTodo());
   leftColumn.appendChild(formList());
 
   const listD = createDiv(['list']);

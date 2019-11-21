@@ -1,6 +1,6 @@
 import { createElem } from './elmcreator';
 
-function createList(lists, currentList) {
+function createList(lists) {
   const list = createElem('ul', '', ['todoLists', 'list-group']);
   lists.forEach((elem) => {
     const item = createElem('li', '', [
