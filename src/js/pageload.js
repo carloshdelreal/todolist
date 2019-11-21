@@ -13,19 +13,33 @@ export default function load() {
   rightColumn.appendChild(buttonTask);
 
   // Create Todo Objects
-  const todoContainer = Container();
-  const list = List('Test List');
-  const cDate = new Date();
 
-  list.todos.push(
-    Todo(
-      'Name',
-      'This is the Descriptio',
-      `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`,
-      3
-    )
-  );
-  todoContainer.lists.push(list);
+  let todoCont = JSON.parse(localStorage.getItem('todoContainer'));
+  const todoContainer = Container();
+
+  if (todoCont) {
+    for (let i = 0; i < todoCont['lists'].length; i += 1) {
+      const list = List(todoCont['lists'][i].name);
+      for (let j = 0; j < todoCont['lists'][i].todos.length; j += 1) {
+        const t = todoCont['lists'][i].todos[j];
+        const todo = Todo(t.title, t.description, t.date, t.priority);
+        list.todos.push(todo);
+      }
+      todoContainer.lists.push(list);
+    }
+  } else {
+    const list = List('Test List');
+    const cDate = new Date();
+    list.todos.push(
+      Todo(
+        'Name',
+        'This is the Descriptio',
+        `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`,
+        3
+      )
+    );
+    todoContainer.lists.push(list);
+  }
 
   // append created DOM objects
   content.appendChild(leftColumn);

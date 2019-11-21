@@ -1,5 +1,10 @@
 import { createList, createListTodos } from './updateList';
-import { listListener, deleteListener, listdeleteListener } from '../index';
+import {
+  listListener,
+  deleteListener,
+  listdeleteListener,
+  saveCurrentState,
+} from '../index';
 
 const List = (listName) => {
   let name = listName;
@@ -27,6 +32,7 @@ const Container = () => {
     listListener();
     deleteListener();
     listdeleteListener();
+    saveCurrentState();
   };
 
   const deleteTodo = (index) => {

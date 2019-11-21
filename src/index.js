@@ -108,4 +108,14 @@ function listdeleteListener() {
   });
 }
 
-export { listListener, deleteListener, listdeleteListener, changeList };
+function saveCurrentState() {
+  localStorage.setItem('todoContainer', JSON.stringify(todoContainer));
+}
+
+export {
+  listListener,
+  deleteListener,
+  listdeleteListener,
+  changeList,
+  saveCurrentState,
+};
