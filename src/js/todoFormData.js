@@ -1,18 +1,26 @@
 function getTodoFormData() {
   const input = document.querySelectorAll('.formTodo input');
   const desc = document.querySelector('.formTodo textarea');
-  const bullets = document.querySelectorAll('.formTodo .bullets .form-check-input');
+  const bullets = document.querySelectorAll(
+    '.formTodo .bullets .form-check-input'
+  );
 
   const title = input[0].value;
   const description = desc.value;
-  const date = input[1].value;
+  let date = input[1].value;
   const priority = getBulletsValue(bullets);
 
   if (formDataValid()) {
     input[0].value = '';
     desc.value = '';
-    input[1].value = '';
+    const cDate = new Date();
+    input[1].value = `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`;
     resetBulletsValue(bullets);
+
+    if (date == '') {
+      const cDate = new Date();
+      date = `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`;
+    }
 
     return { title, description, date, priority };
   } else {
@@ -39,34 +47,14 @@ function resetBulletsValue(radios) {
 
 function formDataValid() {
   const input = document.querySelectorAll('.formTodo input');
-  const desc = document.querySelector('.formTodo textarea');
 
   const title = input[0].value;
-  const description = desc.value;
-  const date = input[1].value;
 
-  if (title == '' || description == '' || date == '') {
-    if (title == '') {
-      input[0].classList.add('is-invalid');
-    } else {
-      input[0].classList.remove('is-invalid');
-    }
-    if (description == '') {
-      desc.classList.add('is-invalid');
-    } else {
-      desc.classList.remove('is-invalid');
-    }
-    if (date == '') {
-      input[1].classList.add('is-invalid');
-    } else {
-      input[1].classList.remove('is-invalid');
-    }
-
+  if (title == '') {
+    input[0].classList.add('is-invalid');
     return false;
   } else {
     input[0].classList.remove('is-invalid');
-    desc.classList.remove('is-invalid');
-    input[1].classList.remove('is-invalid');
     return true;
   }
 }

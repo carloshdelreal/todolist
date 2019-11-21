@@ -14,7 +14,10 @@ function createForm() {
 
   // description
   const todoFieldDescription = createDiv(['form-group']);
-  const todoDescription = createElem('textarea', '', ['description', 'form-control']);
+  const todoDescription = createElem('textarea', '', [
+    'description',
+    'form-control',
+  ]);
   todoDescription.placeholder = 'Description';
   todoFieldDescription.appendChild(todoDescription);
 
@@ -23,9 +26,9 @@ function createForm() {
   const todoDueDate = createElem('input', '', ['due-date', 'form-control']);
 
   todoDueDate.type = 'date';
+  const cDate = new Date();
+  todoDueDate.value = `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`;
   todoFieldDate.appendChild(todoDueDate);
-
-
 
   // priority label
   const todoFieldPriorityLab = createElem('div', 'priority', ['form-group']);
@@ -59,7 +62,7 @@ function createForm() {
   todopop.appendChild(todoFieldPriority);
   todopop.appendChild(todoBtn);
   todopop.appendChild(closeBtn);
-  todoFields.appendChild(todopop)
+  todoFields.appendChild(todopop);
 
   return todoFields;
 }
