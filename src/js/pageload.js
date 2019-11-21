@@ -1,5 +1,6 @@
 import { createDiv, createElem } from './elmcreator';
 import { createForm, formList, formEditTodo } from './todoForms';
+/* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 import { Todo, List, Container } from './todo';
 import domListeners from './domListeners';
 

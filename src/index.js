@@ -119,9 +119,5 @@ function saveCurrentState() {
 }
 
 export {
-  listListener,
-  deleteListener,
-  listdeleteListener,
-  changeList,
-  saveCurrentState,
+  listListener, deleteListener, listdeleteListener, changeList, saveCurrentState,
 };
