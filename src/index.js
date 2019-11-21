@@ -52,8 +52,7 @@ function listListener() {
   }
 
   //Listners for Edit
-
-  const cards = document.querySelectorAll('.card');
+  const cards = document.querySelectorAll('.card-title');
   for (let i = 0; i < cards.length; i += 1) {
     cards[i].addEventListener('click', () => {
       const currentTodo = todoContainer.getList().todos[i];

@@ -11,6 +11,7 @@ export default function load() {
   const buttonTask = createElem('button', '', ['btn', 'btn-success', 'pop-up']);
   buttonTask.innerText = 'Add Task';
   rightColumn.appendChild(buttonTask);
+
   // Create Todo Objects
   const todoContainer = Container();
   const list = List('Test List');
@@ -26,6 +27,7 @@ export default function load() {
   );
   todoContainer.lists.push(list);
 
+  // append created DOM objects
   content.appendChild(leftColumn);
   content.appendChild(rightColumn);
 
@@ -35,9 +37,6 @@ export default function load() {
 
   const listD = createDiv(['list']);
   const todosD = createDiv(['todos']);
-
-  todoContainer.listDom = listD;
-  todoContainer.todoDom = todosD;
 
   rightColumn.appendChild(todosD);
   leftColumn.appendChild(listD);
