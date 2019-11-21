@@ -14,14 +14,14 @@ export default function load() {
 
   // Create Todo Objects
 
-  let todoCont = JSON.parse(localStorage.getItem('todoContainer'));
+  const todoCont = JSON.parse(localStorage.getItem('todoContainer'));
   const todoContainer = Container();
 
   if (todoCont) {
-    for (let i = 0; i < todoCont['lists'].length; i += 1) {
-      const list = List(todoCont['lists'][i].name);
-      for (let j = 0; j < todoCont['lists'][i].todos.length; j += 1) {
-        const t = todoCont['lists'][i].todos[j];
+    for (let i = 0; i < todoCont.lists.length; i += 1) {
+      const list = List(todoCont.lists[i].name);
+      for (let j = 0; j < todoCont.lists[i].todos.length; j += 1) {
+        const t = todoCont.lists[i].todos[j];
         const todo = Todo(t.title, t.description, t.date, t.priority);
         list.todos.push(todo);
       }

@@ -3,28 +3,30 @@ import {
   listListener,
   deleteListener,
   listdeleteListener,
-  saveCurrentState,
+  saveCurrentState
 } from '../index';
 
 const List = (listName) => {
-  let name = listName;
+  const name = listName;
   const todos = [];
 
   return { name, todos };
 };
 
 const Todo = (todoTitle, todoDescription, todoDate, todoPriority) => {
-  let title = todoTitle;
-  let description = todoDescription;
-  let date = todoDate;
-  let priority = todoPriority;
+  const title = todoTitle;
+  const description = todoDescription;
+  const date = todoDate;
+  const priority = todoPriority;
 
-  return { title, description, date, priority };
+  return {
+    title, description, date, priority
+  };
 };
 
 const Container = () => {
-  let listDom = null;
-  let todoDom = null;
+  const listDom = null;
+  const todoDom = null;
   let currentList = 0;
   const lists = [];
 
@@ -87,7 +89,7 @@ const Container = () => {
     deleteTodo,
     deleteList,
     getList,
-    updateTodo,
+    updateTodo
   };
 };
 

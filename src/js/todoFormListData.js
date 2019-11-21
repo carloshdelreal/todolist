@@ -1,3 +1,12 @@
+function formDataValid(input) {
+  const title = input.value;
+
+  if (title === '') {
+    return false;
+  }
+  return true;
+}
+
 function getListFormData() {
   const input = document.querySelector('.formList input');
 
@@ -13,12 +22,4 @@ function getListFormData() {
   return null;
 }
 
-function formDataValid(input) {
-  const title = input.value;
-
-  if (title == '') {
-    return false;
-  }
-  return true;
-}
-export { getListFormData };
+export { getListFormData, formDataValid };

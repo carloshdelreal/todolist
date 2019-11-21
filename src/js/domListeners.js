@@ -1,4 +1,4 @@
-export default function() {
+export default function () {
   const form = document.querySelector('.formTodo');
   const formEdit = document.querySelector('.formTodo1');
 

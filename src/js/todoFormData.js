@@ -1,3 +1,34 @@
+function getBulletsValue(radios) {
+  for (let i = 0; i < radios.length; i += 1) {
+    if (radios[i].checked) {
+      return radios[i].value;
+    }
+  }
+  return null;
+}
+
+function resetBulletsValue(radios) {
+  for (let i = 0; i < radios.length; i += 1) {
+    if (radios[i].checked) {
+      radios[i].checked = false;
+    }
+  }
+  radios[0].checked = true;
+}
+
+function formDataValid() {
+  const input = document.querySelectorAll('.formTodo input');
+
+  const title = input[0].value;
+
+  if (title === '') {
+    input[0].classList.add('is-invalid');
+    return false;
+  }
+  input[0].classList.remove('is-invalid');
+  return true;
+}
+
 function getTodoFormData() {
   const input = document.querySelectorAll('.formTodo input');
   const desc = document.querySelector('.formTodo textarea');
@@ -17,46 +48,18 @@ function getTodoFormData() {
     input[1].value = `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`;
     resetBulletsValue(bullets);
 
-    if (date == '') {
-      const cDate = new Date();
+    if (date === '') {
       date = `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`;
     }
 
-    return { title, description, date, priority };
-  } else {
-    return null;
+    return {
+      title,
+      description,
+      date,
+      priority
+    };
   }
+  return null;
 }
 
-function getBulletsValue(radios) {
-  for (var i = 0, length = radios.length; i < length; i++) {
-    if (radios[i].checked) {
-      return radios[i].value;
-    }
-  }
-}
-
-function resetBulletsValue(radios) {
-  for (var i = 0, length = radios.length; i < length; i++) {
-    if (radios[i].checked) {
-      radios[i].checked = false;
-    }
-  }
-  radios[0].checked = true;
-}
-
-function formDataValid() {
-  const input = document.querySelectorAll('.formTodo input');
-
-  const title = input[0].value;
-
-  if (title == '') {
-    input[0].classList.add('is-invalid');
-    return false;
-  } else {
-    console.log('valid');
-    input[0].classList.remove('is-invalid');
-    return true;
-  }
-}
 export { getTodoFormData, getBulletsValue };

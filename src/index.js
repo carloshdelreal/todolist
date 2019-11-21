@@ -123,5 +123,5 @@ export {
   deleteListener,
   listdeleteListener,
   changeList,
-  saveCurrentState,
+  saveCurrentState
 };

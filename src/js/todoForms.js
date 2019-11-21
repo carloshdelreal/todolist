@@ -10,7 +10,7 @@ function createForm() {
   const todoFieldTitle = createDiv(['form-group']);
   const todoTitle = createElem('input', 'todoTitleForm', [
     'title',
-    'form-control',
+    'form-control'
   ]);
   todoTitle.placeholder = 'Todo';
   todoFieldTitle.appendChild(todoTitle);
@@ -19,7 +19,7 @@ function createForm() {
   const todoFieldDescription = createDiv(['form-group']);
   const todoDescription = createElem('textarea', '', [
     'description',
-    'form-control',
+    'form-control'
   ]);
   todoDescription.placeholder = 'Description';
   todoFieldDescription.appendChild(todoDescription);
@@ -103,7 +103,7 @@ function formEditTodo() {
   const todoFieldDescription = createDiv(['form-group']);
   const todoDescription = createElem('textarea', '', [
     'description',
-    'form-control',
+    'form-control'
   ]);
   todoDescription.placeholder = 'Description';
   todoFieldDescription.appendChild(todoDescription);

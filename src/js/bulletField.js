@@ -3,7 +3,7 @@ import { createDiv, createElem } from './elmcreator';
 export default function bulletField(value) {
   const FieldPriority = createDiv(['form-check', 'form-check-inline']);
   const Priority = createElem('input', `inlineRadio${value}`, [
-    'form-check-input',
+    'form-check-input'
   ]);
   Priority.type = 'radio';
   Priority.setAttribute('name', 'inlineRadioOptions');
