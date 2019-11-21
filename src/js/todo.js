@@ -1,9 +1,7 @@
 import { createList, createListTodos } from './updateList';
+/* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 import {
-  listListener,
-  deleteListener,
-  listdeleteListener,
-  saveCurrentState,
+  listListener, deleteListener, listdeleteListener, saveCurrentState,
 } from '../index';
 
 const List = (listName) => {
@@ -20,7 +18,10 @@ const Todo = (todoTitle, todoDescription, todoDate, todoPriority) => {
   const priority = todoPriority;
 
   return {
-    title, description, date, priority,
+    title,
+    description,
+    date,
+    priority,
   };
 };
 
@@ -48,12 +49,7 @@ const Container = () => {
   };
 
   function addTodo(data) {
-    const newTodo = Todo(
-      data.title,
-      data.description,
-      data.date,
-      data.priority,
-    );
+    const newTodo = Todo(data.title, data.description, data.date, data.priority);
     lists[currentList].todos.push(newTodo);
   }
   function setCurrentList(number) {
@@ -68,12 +64,7 @@ const Container = () => {
   }
 
   function updateTodo(data) {
-    const newTodo = Todo(
-      data.title,
-      data.description,
-      data.date,
-      data.priority,
-    );
+    const newTodo = Todo(data.title, data.description, data.date, data.priority);
 
     lists[currentList].todos[data.index] = newTodo;
   }
