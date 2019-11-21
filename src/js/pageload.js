@@ -52,6 +52,9 @@ export default function load() {
   const listD = createDiv(['list']);
   const todosD = createDiv(['todos']);
 
+  todoContainer.listDom = listD;
+  todoContainer.todoDom = todosD;
+
   rightColumn.appendChild(todosD);
   leftColumn.appendChild(listD);
 

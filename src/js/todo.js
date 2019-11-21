@@ -23,6 +23,8 @@ const Todo = (todoTitle, todoDescription, todoDate, todoPriority) => {
 };
 
 const Container = () => {
+  let listDom = null;
+  let todoDom = null;
   let currentList = 0;
   const lists = [];
 
@@ -76,6 +78,8 @@ const Container = () => {
 
   return {
     lists,
+    listDom,
+    todoDom,
     update,
     addList,
     addTodo,
