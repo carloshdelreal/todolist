@@ -1,8 +1,10 @@
 import './style.scss';
+// eslint-disable-next-line import/no-cycle
 import load from './js/pageload';
 import { getTodoFormData } from './js/todoFormData';
 import { getListFormData } from './js/todoFormListData';
 import { loadData, updateData } from './js/editTodo';
+
 let todoContainer = null;
 
 window.onload = () => {
@@ -44,19 +46,21 @@ window.onload = () => {
 function listListener() {
   const listItems = document.querySelectorAll('.todoLists .todoItem');
   for (let i = 0; i < listItems.length; i += 1) {
+    // eslint-disable-next-line no-loop-func
     listItems[i].addEventListener('click', () => {
       todoContainer.setCurrentList(i);
       todoContainer.update();
+      // eslint-disable-next-line no-use-before-define
       changeList(i);
     });
   }
 
-  //Listners for Edit
+  // Listners for Edit
   const cards = document.querySelectorAll('.card-title');
   for (let i = 0; i < cards.length; i += 1) {
+    // eslint-disable-next-line no-loop-func
     cards[i].addEventListener('click', () => {
       const currentTodo = todoContainer.getList().todos[i];
-
       loadData(currentTodo, i);
     });
   }
@@ -78,8 +82,9 @@ function changeList(index) {
 
 // adds delete todo listeners
 function deleteListener() {
-  let btt = document.querySelectorAll('.list-group .card .bin');
+  const btt = document.querySelectorAll('.list-group .card .bin');
   for (let i = 0; i < btt.length; i += 1) {
+    // eslint-disable-next-line no-loop-func
     btt[i].addEventListener('click', () => {
       todoContainer.deleteTodo(i);
       todoContainer.update();
@@ -89,15 +94,16 @@ function deleteListener() {
 
 // adds delete list listeners
 function listdeleteListener() {
-  let btt = document.querySelectorAll('.list-group .binlist');
+  const btt = document.querySelectorAll('.list-group .binlist');
   for (let i = 0; i < btt.length; i += 1) {
+    // eslint-disable-next-line no-loop-func
     btt[i].addEventListener('click', () => {
       todoContainer.deleteList(i);
     });
   }
   const titleField = document.querySelector('#todoTitleForm');
   titleField.addEventListener('keypress', (e) => {
-    let key = e.which || e.keyCode;
+    const key = e.which || e.keyCode;
     if (key === 13) {
       const data = getTodoFormData();
       if (data) {
