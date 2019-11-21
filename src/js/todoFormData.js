@@ -59,4 +59,4 @@ function formDataValid() {
     return true;
   }
 }
-export { getTodoFormData };
+export { getTodoFormData,getBulletsValue };

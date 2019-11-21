@@ -139,6 +139,10 @@ function formList() {
     todoFieldPriority.appendChild(bulletField(4));
     todoFieldPriority.appendChild(bulletField(5));
 
+
+    const index = createElem('input', '', ['hidden']);
+    index.setAttribute('hidden',true);
+
     // button
     const todoBtn = createElem('button', '', ['btn', 'btn-success']);
     todoBtn.innerText = 'Update';
@@ -148,6 +152,7 @@ function formList() {
 
     // Put everything together
     todopop.appendChild(todoFieldTitle);
+    todopop.appendChild(index);
     todopop.appendChild(todoFieldDescription);
     todopop.appendChild(todoFieldDate);
     todopop.appendChild(todoFieldPriorityLab);

@@ -2,7 +2,7 @@ import './style.scss';
 import load from './js/pageload';
 import { getTodoFormData } from './js/todoFormData';
 import { getListFormData } from './js/todoFormListData';
-import { loadData } from './js/editTodo';
+import { loadData,updateData } from './js/editTodo';
 let todoContainer = null;
 
 window.onload = () => {
@@ -14,7 +14,17 @@ window.onload = () => {
   btn.addEventListener('click', () => {
     const data = getTodoFormData();
     if (data) {
-      todoContainer.addTodo(data);
+      todoContainer.updateTodo(data);
+      todoContainer.update();
+    }
+  });
+
+  // update todo
+  const updateBtn = document.querySelector('.formTodo1 button');
+  updateBtn.addEventListener('click', () => {
+    const data = updateData();
+    if (data) {
+      todoContainer.updateTodo(data);
       todoContainer.update();
     }
   });
@@ -42,12 +52,15 @@ function listListener() {
       changeList(i);
     });
   }
+
+  //Listners for Edit
+
   const cards = document.querySelectorAll('.card');
   for (let i = 0; i < cards.length; i += 1) {
     cards[i].addEventListener('click', () => {
       const currentTodo = todoContainer.getList().todos[i];
 
-      loadData(currentTodo);
+      loadData(currentTodo,i);
     });
   }
 

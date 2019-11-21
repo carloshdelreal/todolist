@@ -54,7 +54,13 @@ const Container = () => {
     lists.push(newlist);
   }
 
-  return { lists, listDom, todoDom, update, addList, addTodo, setCurrentList, deleteTodo, deleteList, getList };
+  function updateTodo(data) {
+    const newTodo = Todo(data.title, data.description, data.date, data.priority);
+
+    lists[currentList].todos[data.index] = newTodo;
+  }
+
+  return { lists, listDom, todoDom, update, addList, addTodo, setCurrentList, deleteTodo, deleteList, getList,updateTodo };
 };
 
 export { List, Todo, Container };
