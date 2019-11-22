@@ -29,7 +29,7 @@ This project was created by:
 
 # Live Version
 
-You can find the development's live version of this project [here](https://rawcdn.githack.com/carloshdelreal/todolist/tree/feature/html_css_design/src/index.html)
+You can find the development's live version of this project [here](https://raw.githack.com/carloshdelreal/todolist/feature/html_css_design/dist/index.html)
 
 # License
 
