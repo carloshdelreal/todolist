@@ -1,7 +1,8 @@
 import { createDiv, createElem } from './elmcreator';
 import { createForm, formList, formEditTodo } from './todoForms';
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
-import { Todo, List, Container } from './todo';
+import { Container, List, Todo } from './todo';
+
 import domListeners from './domListeners';
 
 export default function load() {
@@ -31,14 +32,13 @@ export default function load() {
   } else {
     const list = List('Test List');
     const cDate = new Date();
-    list.todos.push(
-      Todo(
-        'Name',
-        'This is the Descriptio',
-        `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`,
-        3,
-      ),
+    const pushing = Todo(
+      'Name',
+      'This is the Descriptio',
+      `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`,
+      3,
     );
+    list.todos.push(pushing);
     todoContainer.lists.push(list);
   }
 
