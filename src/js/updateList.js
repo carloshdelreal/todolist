@@ -28,7 +28,6 @@ function createListTodos(lists, currentList) {
   if (lists.length > 0 && lists[currentList] != null) {
     todo = lists[currentList].todos;
     todo = todo.sort(lists[currentList].todos.date);
-    console.log(todo);
   }
   todo.forEach((elem) => {
     const item = createElem('li', '', ['todoItem']);
