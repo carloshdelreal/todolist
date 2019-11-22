@@ -16,7 +16,7 @@ window.onload = () => {
   btn.addEventListener('click', () => {
     const data = getTodoFormData();
     if (data) {
-      todoContainer.updateTodo(data);
+      todoContainer.addTodo(data);
       todoContainer.update();
     }
   });
