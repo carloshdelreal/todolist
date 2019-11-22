@@ -27,7 +27,6 @@ function createListTodos(lists, currentList) {
   const list = createElem('ul', '', ['todos', 'list-group']);
   if (lists.length > 0 && lists[currentList] != null) {
     todo = lists[currentList].todos;
-    todo = todo.sort(lists[currentList].todos.date);
   }
   todo.forEach((elem) => {
     const item = createElem('li', '', ['todoItem']);

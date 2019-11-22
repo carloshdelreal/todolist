@@ -48,9 +48,18 @@ const Container = () => {
     lists.splice(index, 1);
   };
 
+  function todoSortbyDate() {
+    lists[currentList].todos = lists[currentList].todos.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateA - dateB;
+    });
+  }
+
   function addTodo(data) {
     const newTodo = Todo(data.title, data.description, data.date, data.priority);
     lists[currentList].todos.push(newTodo);
+    todoSortbyDate();
   }
   function setCurrentList(number) {
     currentList = number;
@@ -67,6 +76,7 @@ const Container = () => {
     const newTodo = Todo(data.title, data.description, data.date, data.priority);
 
     lists[currentList].todos[data.index] = newTodo;
+    todoSortbyDate();
   }
 
   return {
