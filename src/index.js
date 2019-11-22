@@ -1,6 +1,6 @@
 import './style.scss';
 // eslint-disable-next-line import/no-cycle
-import load from './js/pageload';
+import pageload from './js/pageload';
 import { getTodoFormData } from './js/todoFormData';
 import { getListFormData } from './js/todoFormListData';
 import { loadData, updateData } from './js/editTodo';
@@ -8,7 +8,7 @@ import { loadData, updateData } from './js/editTodo';
 let todoContainer = null;
 
 window.onload = () => {
-  todoContainer = load();
+  todoContainer = pageload();
   todoContainer.update();
 
   // add todo

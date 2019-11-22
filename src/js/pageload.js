@@ -32,12 +32,8 @@ export default function load() {
   } else {
     const list = List('Test List');
     const cDate = new Date();
-    const pushing = Todo(
-      'Name',
-      'This is the Descriptio',
-      `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`,
-      3,
-    );
+    const strDate = `${cDate.getFullYear()}-${cDate.getMonth()}-${cDate.getDate()}`;
+    const pushing = Todo('Name', 'This is the Descriptio', strDate, 3);
     list.todos.push(pushing);
     todoContainer.lists.push(list);
   }
