@@ -31,6 +31,8 @@ This project was created by:
 
 You can find the development's live version of this project [here](https://raw.githack.com/carloshdelreal/todolist/feature/html_css_design/dist/index.html)
 
+You can find the final version of this project [here](https://carloshdelreal.github.io/todolist/dist/index.html)
+
 # License
 
 All the source code in the [The Odin Project](https://www.theodinproject.com/courses/javascript/lessons/todo-list) is available jointly under the MIT License and the Beerware License.
