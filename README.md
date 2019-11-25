@@ -2,7 +2,7 @@
 
 Todo List app using JavaScript.
 
-**Todo List** is a simple front end Restaurant Page, made using the methodology of [The Oding Project](https://www.theodinproject.com). This prjoect ask us to make a library app and you can click [here](https://www.theodinproject.com/courses/javascript/lessons/todo-list) to see the project requirements.
+**Todo List** is a simple front end Restaurant Page, made using the methodology of [The Oding Project](https://www.theodinproject.com). This project ask us to make a todo list app and you can click [here](https://www.theodinproject.com/courses/javascript/lessons/todo-list) to see the project requirements.
 
 The project will be reviewed and approved by a **TSE** from [Microverse](https://microverse.org)
 
@@ -29,7 +29,7 @@ This project was created by:
 
 # Live Version
 
-You can find the development's live version of this project [here]()
+You can find the development's live version of this project [here](https://raw.githack.com/carloshdelreal/todolist/feature/html_css_design/dist/index.html)
 
 # License
 
